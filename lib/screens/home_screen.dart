@@ -13,9 +13,9 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              appBarHomeScreen(),
+              _appBarHomeScreen(),
 
-              
+              _welcomeFashionApp(),
             ],
           ),
         ),
@@ -23,7 +23,34 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Padding appBarHomeScreen() {
+  Padding _welcomeFashionApp() {
+    return Padding(
+              padding: const EdgeInsets.only(right: 25, left: 25, bottom: 19),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome,',
+                    style: TextStyle(
+                      color: AppColors.blackColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'Our Fashions App',
+                    style: TextStyle(
+                      color: AppColors.subTextColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            );
+  }
+
+  Padding _appBarHomeScreen() {
     return Padding(
       padding: EdgeInsets.fromLTRB(25, 41, 25, 22),
       child: Row(
