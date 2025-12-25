@@ -3,7 +3,8 @@ import 'package:ecommerce/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  final List products = [Assets.images.bag1.path, Assets.images.watch.path];
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class HomeScreen extends StatelessWidget {
                   _appBarHomeScreen(),
                   _welcomeFashionApp(),
                   _searchBar(),
+                  _productListView(),
                 ],
               ),
             ),
@@ -28,9 +30,110 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget _productListView() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 25),
+      height: 182,
+      child: ListView.builder(
+        physics: BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: products.length,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: EdgeInsets.only(left: index == 0 ? 25 : 0, right: 15),
+            width: 260,
+            height: 160,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: AppColors.productCartColor,
+            ),
+
+            child: Stack(
+              children: [
+                Positioned.fill(
+                  right: 0,
+                  bottom: 0,
+                  top: 0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(products[index], fit: BoxFit.cover),
+                  ),
+                ),
+                Positioned(
+                  left: 15,
+                  top: 17,
+                  bottom: 17,
+                  right: 140,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '50% Off',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25,
+                        ),
+                      ),
+
+                      Text(
+                        'On everything today',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppColors.blackColor,
+                        ),
+                      ),
+
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
+                        child: Text(
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          'With code:FSCREATION',
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.subTextColor,
+                          ),
+                        ),
+                      ),
+
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 13,
+                            vertical: 5,
+                          ),
+                          backgroundColor: AppColors.blackColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(1000),
+                          ),
+                        ),
+                        child: Text(
+                          'Get Now',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   Widget _searchBar() {
     return Padding(
-      padding: const EdgeInsets.only(right: 25, left: 25, bottom: 19),
+      padding: const EdgeInsets.only(right: 25, left: 25, bottom: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

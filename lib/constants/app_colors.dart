@@ -8,4 +8,5 @@ class AppColors {
   static Color searchHintColor = Color(0xffaaaaaa);
   static Color subTextColor = Color(0xff666666);
   static Color searchFillColor = Color(0xffF3F4F5);
+  static Color productCartColor = Color(0xff666666);
 }
