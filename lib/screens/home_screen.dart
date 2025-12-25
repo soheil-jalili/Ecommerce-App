@@ -25,7 +25,96 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            _products(),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _products() {
+    final productImages = [
+      Assets.images.bag.path,
+      Assets.images.shoes.path,
+      Assets.images.bag.path,
+      Assets.images.shoes.path,
+      Assets.images.bag.path,
+      Assets.images.shoes.path,
+    ];
+
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      sliver: SliverGrid(
+        delegate: SliverChildBuilderDelegate(
+          childCount: productImages.length,
+          (context, index) => Container(
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Stack(
+                    children: [
+                      Image.asset(productImages[index]),
+
+                      Positioned(
+                        right: 15,
+                        top: 15,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: AppColors.blackColor,
+                              borderRadius: BorderRadius.circular(1000),
+                            ),
+                            child: Center(child: Assets.images.hart.image()),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 11),
+                Text(
+                  'The Marc Jacobs',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.blackColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  'Traveler Tote',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 11, color: AppColors.subTextColor),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  '\$195.00',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColors.blackColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 0,
+          crossAxisSpacing: 15,
+          childAspectRatio: 155 / 240,
         ),
       ),
     );
