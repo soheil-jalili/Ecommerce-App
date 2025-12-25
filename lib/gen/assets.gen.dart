@@ -42,6 +42,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/profile.png
   AssetGenImage get profile => const AssetGenImage('assets/images/profile.png');
 
+  /// File path: assets/images/search.png
+  AssetGenImage get search => const AssetGenImage('assets/images/search.png');
+
   /// File path: assets/images/shoes.png
   AssetGenImage get shoes => const AssetGenImage('assets/images/shoes.png');
 
@@ -62,6 +65,7 @@ class $AssetsImagesGen {
     menu,
     notification,
     profile,
+    search,
     shoes,
     sort,
     watch,
