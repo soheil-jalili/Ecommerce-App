@@ -14,7 +14,6 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _appBarHomeScreen(),
-
               _welcomeFashionApp(),
             ],
           ),
@@ -23,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Padding _welcomeFashionApp() {
+  Widget _welcomeFashionApp() {
     return Padding(
               padding: const EdgeInsets.only(right: 25, left: 25, bottom: 19),
               child: Column(
