@@ -21,11 +21,42 @@ class HomeScreen extends StatelessWidget {
                   _welcomeFashionApp(),
                   _searchBar(),
                   _productListView(),
+                  _viewAllRow(),
                 ],
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _viewAllRow() {
+    return Padding(
+      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 11),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            'New Arrivals',
+            style: TextStyle(
+              fontSize: 18,
+              color: AppColors.blackColor,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Text(
+              'View All',
+              style: TextStyle(
+                fontSize: 11,
+                color: AppColors.subTextColor,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
