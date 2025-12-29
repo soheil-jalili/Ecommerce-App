@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.only(right: 25, left: 25, bottom: 50),
       sliver: SliverGrid(
         delegate: SliverChildBuilderDelegate(
           childCount: productImages.length,
