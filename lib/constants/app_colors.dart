@@ -9,4 +9,5 @@ class AppColors {
   static Color subTextColor = Color(0xff666666);
   static Color searchFillColor = Color(0xffF3F4F5);
   static Color productCartColor = Color(0xff666666);
+  static Color bottomAppBarItemActiveBackgroundColor = Color(0xffEEEEEE);
 }
