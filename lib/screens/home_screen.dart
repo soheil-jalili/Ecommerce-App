@@ -1,5 +1,6 @@
 import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
+import 'package:ecommerce/screens/product_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -49,65 +50,78 @@ class HomeScreen extends StatelessWidget {
       sliver: SliverGrid(
         delegate: SliverChildBuilderDelegate(
           childCount: productImages.length,
-          (context, index) => Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-            child: Column(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: Stack(
-                    children: [
-                      Image.asset(productImages[index]),
+          (context, index) => GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductDetailScreen()),
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Stack(
+                      children: [
+                        Image.asset(productImages[index]),
 
-                      Positioned(
-                        right: 15,
-                        top: 15,
-                        child: GestureDetector(
-                          onTap: () {},
-                          child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: AppColors.blackColor,
-                              borderRadius: BorderRadius.circular(1000),
+                        Positioned(
+                          right: 15,
+                          top: 15,
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: AppColors.blackColor,
+                                borderRadius: BorderRadius.circular(1000),
+                              ),
+                              child: Center(child: Assets.images.hart.image()),
                             ),
-                            child: Center(child: Assets.images.hart.image()),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-                SizedBox(height: 11),
-                Text(
-                  'The Marc Jacobs',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors.blackColor,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(height: 11),
+                  Text(
+                    'The Marc Jacobs',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: AppColors.blackColor,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  'Traveler Tote',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 11, color: AppColors.subTextColor),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  '\$195.00',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: AppColors.blackColor,
-                    fontWeight: FontWeight.bold,
+                  SizedBox(height: 4),
+                  Text(
+                    'Traveler Tote',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11,
+                      color: AppColors.subTextColor,
+                    ),
                   ),
-                ),
-              ],
+                  SizedBox(height: 4),
+                  Text(
+                    '\$195.00',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: AppColors.blackColor,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -160,91 +174,99 @@ class HomeScreen extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: products.length,
         itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.only(left: index == 0 ? 25 : 0, right: 15),
-            width: 260,
-            height: 160,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: AppColors.productCartColor,
-            ),
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProductDetailScreen()),
+              );
+            },
+            child: Container(
+              margin: EdgeInsets.only(left: index == 0 ? 25 : 0, right: 15),
+              width: 260,
+              height: 160,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: AppColors.productCartColor,
+              ),
 
-            child: Stack(
-              children: [
-                Positioned.fill(
-                  right: 0,
-                  bottom: 0,
-                  top: 0,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(products[index], fit: BoxFit.cover),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    right: 0,
+                    bottom: 0,
+                    top: 0,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(products[index], fit: BoxFit.cover),
+                    ),
                   ),
-                ),
-                Positioned(
-                  left: 15,
-                  top: 17,
-                  bottom: 17,
-                  right: 140,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '50% Off',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                  Positioned(
+                    left: 15,
+                    top: 17,
+                    bottom: 17,
+                    right: 140,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '50% Off',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 25,
+                          ),
                         ),
-                      ),
 
-                      Text(
-                        'On everything today',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.blackColor,
-                        ),
-                      ),
-
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
-                        child: Text(
+                        Text(
+                          'On everything today',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          'With code:FSCREATION',
                           style: TextStyle(
-                            fontSize: 11,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.subTextColor,
+                            fontSize: 16,
+                            color: AppColors.blackColor,
                           ),
                         ),
-                      ),
 
-                      ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 13,
-                            vertical: 5,
-                          ),
-                          backgroundColor: AppColors.blackColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(1000),
-                          ),
-                        ),
-                        child: Text(
-                          'Get Now',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                            fontWeight: FontWeight.bold,
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 10, 0, 15),
+                          child: Text(
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            'With code:FSCREATION',
+                            style: TextStyle(
+                              fontSize: 11,
+                              fontWeight: FontWeight.bold,
+                              color: AppColors.subTextColor,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+
+                        ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 13,
+                              vertical: 5,
+                            ),
+                            backgroundColor: AppColors.blackColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(1000),
+                            ),
+                          ),
+                          child: Text(
+                            'Get Now',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         },

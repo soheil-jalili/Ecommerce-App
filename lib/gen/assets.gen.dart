@@ -17,14 +17,27 @@ class $AssetsImagesGen {
   /// File path: assets/images/avatar.png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar.png');
 
+  /// File path: assets/images/back.png
+  AssetGenImage get back => const AssetGenImage('assets/images/back.png');
+
   /// File path: assets/images/bag.png
   AssetGenImage get bag => const AssetGenImage('assets/images/bag.png');
 
   /// File path: assets/images/bag1.png
   AssetGenImage get bag1 => const AssetGenImage('assets/images/bag1.png');
 
+  /// File path: assets/images/btn-bag.png
+  AssetGenImage get btnBag => const AssetGenImage('assets/images/btn-bag.png');
+
   /// File path: assets/images/cart.png
   AssetGenImage get cart => const AssetGenImage('assets/images/cart.png');
+
+  /// File path: assets/images/detail.png
+  AssetGenImage get detail => const AssetGenImage('assets/images/detail.png');
+
+  /// File path: assets/images/hart-detail.png
+  AssetGenImage get hartDetail =>
+      const AssetGenImage('assets/images/hart-detail.png');
 
   /// File path: assets/images/hart.png
   AssetGenImage get hart => const AssetGenImage('assets/images/hart.png');
@@ -51,15 +64,28 @@ class $AssetsImagesGen {
   /// File path: assets/images/sort.png
   AssetGenImage get sort => const AssetGenImage('assets/images/sort.png');
 
+  /// File path: assets/images/star.png
+  AssetGenImage get star => const AssetGenImage('assets/images/star.png');
+
+  /// File path: assets/images/tick.png
+  AssetGenImage get tick => const AssetGenImage('assets/images/tick.png');
+
+  /// File path: assets/images/top-bag.png
+  AssetGenImage get topBag => const AssetGenImage('assets/images/top-bag.png');
+
   /// File path: assets/images/watch.png
   AssetGenImage get watch => const AssetGenImage('assets/images/watch.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
     avatar,
+    back,
     bag,
     bag1,
+    btnBag,
     cart,
+    detail,
+    hartDetail,
     hart,
     home,
     menu,
@@ -68,6 +94,9 @@ class $AssetsImagesGen {
     search,
     shoes,
     sort,
+    star,
+    tick,
+    topBag,
     watch,
   ];
 }
