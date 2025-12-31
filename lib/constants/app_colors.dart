@@ -15,5 +15,7 @@ class AppColors {
   static Color textSizeColor = Color(0xff888888);
   static Color borderColorsColor = Color(0xffCCCCCC);
   static Color totalPriceColor = Color(0xffaaaaaa);
-
+  static Color promoCodeColor = Color(0xffF3F3F3);
+  static Color placeholderColor = Color(0xffAAAAAA);
+  static Color totalTextColor = Color(0xff888888);
 }

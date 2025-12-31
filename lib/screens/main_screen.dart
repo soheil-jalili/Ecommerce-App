@@ -1,5 +1,6 @@
 import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
+import 'package:ecommerce/screens/cart_screen.dart';
 import 'package:ecommerce/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class _MainScreenState extends State<MainScreen> {
               index: _selectedItem,
               children: [
                 HomeScreen(),
-                Center(child: Text('cart')),
+                CartScreen(),
                 Center(child: Text('not')),
                 Center(child: Text('profile')),
               ],

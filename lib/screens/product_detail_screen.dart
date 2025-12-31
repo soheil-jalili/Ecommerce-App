@@ -1,16 +1,27 @@
 import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
+import 'package:ecommerce/widgets/top_app_bar_custom.dart';
 import 'package:flutter/material.dart';
 
-class ProductDetailScreen extends StatelessWidget {
-  ProductDetailScreen({super.key});
+class ProductDetailScreen extends StatefulWidget {
+  const ProductDetailScreen({super.key});
+
+  @override
+  State<ProductDetailScreen> createState() => _ProductDetailScreenState();
+}
+
+class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+
   final colors = [
     AppColors.whiteColor,
     AppColors.blackColor,
     Color(0xffCADCA7),
     Color(0xffF79F1F),
   ];
+
+  int selectedSize = 2;
+  int selectedColor = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +207,11 @@ class ProductDetailScreen extends StatelessWidget {
                                   ...List.generate(
                                     sizes.length,
                                     (index) => GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        setState(() {
+                                          selectedSize = index;
+                                        });
+                                      },
                                       child: Container(
                                         width: 40,
                                         height: 40,
@@ -211,7 +226,9 @@ class ProductDetailScreen extends StatelessWidget {
                                             color: AppColors.borderColor,
                                           ),
 
-                                          color: sizes[index] == 'L'
+                                          color:
+                                              sizes[index] ==
+                                                  sizes[selectedSize]
                                               ? AppColors.blackColor
                                               : Colors.transparent,
                                         ),
@@ -221,7 +238,9 @@ class ProductDetailScreen extends StatelessWidget {
                                             sizes[index],
                                             style: TextStyle(
                                               fontSize: 14,
-                                              color: sizes[index] == 'L'
+                                              color:
+                                                  sizes[index] ==
+                                                      sizes[selectedSize]
                                                   ? AppColors.whiteColor
                                                   : AppColors.textSizeColor,
                                             ),
@@ -259,7 +278,11 @@ class ProductDetailScreen extends StatelessWidget {
                                     ...List.generate(
                                       colors.length,
                                       (index) => GestureDetector(
-                                        onTap: () {},
+                                        onTap: () {
+                                          setState(() {
+                                            selectedColor = index;
+                                          });
+                                        },
                                         child: Container(
                                           width: 20,
                                           height: 20,
@@ -270,27 +293,28 @@ class ProductDetailScreen extends StatelessWidget {
                                             shape: BoxShape.circle,
                                             color: colors[index],
 
-                                            border:
-                                                colors[index] ==
-                                                    AppColors.whiteColor
-                                                ? Border.all(
-                                                    width: 1,
-                                                    color: AppColors
-                                                        .borderColorsColor,
-                                                  )
-                                                : Border.all(
-                                                    width: 0,
-                                                    color: Colors.transparent,
-                                                  ),
+                                            border: Border.all(
+                                              width: 1,
+                                              color:
+                                                  colors[index] ==
+                                                      AppColors.whiteColor
+                                                  ? AppColors.borderColorsColor
+                                                  : Colors.transparent,
+                                            ),
                                           ),
 
                                           child:
-                                              colors[index] ==
-                                                  AppColors.whiteColor
+                                              colors[selectedColor] ==
+                                                  colors[index]
                                               ? ImageIcon(
                                                   AssetImage(
                                                     Assets.images.tick.path,
                                                   ),
+                                                  color:
+                                                      colors[selectedColor] ==
+                                                          AppColors.whiteColor
+                                                      ? Colors.black
+                                                      : AppColors.whiteColor,
                                                 )
                                               : SizedBox.shrink(),
                                         ),
@@ -397,40 +421,7 @@ class ProductDetailScreen extends StatelessWidget {
           child: Image.asset(Assets.images.detail.path, fit: BoxFit.cover),
         ),
 
-        Padding(
-          padding: EdgeInsets.only(right: 25, left: 25, top: 9.32),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pop();
-                },
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.blackColor,
-                  ),
-                  child: Center(child: Image.asset(Assets.images.back.path)),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColors.whiteColor,
-                  ),
-                  child: Center(child: Image.asset(Assets.images.topBag.path)),
-                ),
-              ),
-            ],
-          ),
-        ),
+        TopAppBarCustom(length: 0, haveShadow: false),
 
         Positioned(
           bottom: 40,

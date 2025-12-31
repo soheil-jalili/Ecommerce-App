@@ -29,11 +29,18 @@ class $AssetsImagesGen {
   /// File path: assets/images/btn-bag.png
   AssetGenImage get btnBag => const AssetGenImage('assets/images/btn-bag.png');
 
+  /// File path: assets/images/cart-image.png
+  AssetGenImage get cartImage =>
+      const AssetGenImage('assets/images/cart-image.png');
+
   /// File path: assets/images/cart.png
   AssetGenImage get cart => const AssetGenImage('assets/images/cart.png');
 
   /// File path: assets/images/detail.png
   AssetGenImage get detail => const AssetGenImage('assets/images/detail.png');
+
+  /// File path: assets/images/forward.png
+  AssetGenImage get forward => const AssetGenImage('assets/images/forward.png');
 
   /// File path: assets/images/hart-detail.png
   AssetGenImage get hartDetail =>
@@ -83,8 +90,10 @@ class $AssetsImagesGen {
     bag,
     bag1,
     btnBag,
+    cartImage,
     cart,
     detail,
+    forward,
     hartDetail,
     hart,
     home,
