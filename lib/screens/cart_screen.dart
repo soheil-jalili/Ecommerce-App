@@ -3,13 +3,19 @@ import 'package:ecommerce/gen/assets.gen.dart';
 import 'package:ecommerce/widgets/top_app_bar_custom.dart';
 import 'package:flutter/material.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
+      resizeToAvoidBottomInset: true,
 
       body: Stack(
         children: [
@@ -185,58 +191,54 @@ class CartScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            ],
+          ),
 
-              SizedBox(height: 40),
+          Positioned(
+            bottom: 247,
+            right: 25,
+            left: 25,
+            child: Container(
+              height: 65,
+              decoration: BoxDecoration(
+                color: AppColors.promoCodeColor,
+                borderRadius: BorderRadius.circular(10),
+              ),
 
-              Padding(
-                padding: EdgeInsets.only(
-                  right: 25,
-                  left: 25,
-                  bottom: MediaQuery.of(context).viewInsets.top,
-                ),
-                child: Container(
-                  height: 65,
-                  decoration: BoxDecoration(
-                    color: AppColors.promoCodeColor,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 15, left: 19),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Promo Code',
-                              hintStyle: TextStyle(
-                                color: AppColors.placeholderColor,
-                              ),
-                            ),
+              child: Padding(
+                padding: const EdgeInsets.only(right: 15, left: 19),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          hintText: 'Promo Code',
+                          hintStyle: TextStyle(
+                            color: AppColors.placeholderColor,
                           ),
                         ),
-                        SizedBox(width: 7),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.blackColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadiusGeometry.circular(7),
-                            ),
-                          ),
-                          onPressed: () {},
-
-                          child: Text(
-                            'Apply',
-                            style: TextStyle(color: AppColors.whiteColor),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                    SizedBox(width: 7),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.blackColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(7),
+                        ),
+                      ),
+                      onPressed: () {},
+
+                      child: Text(
+                        'Apply',
+                        style: TextStyle(color: AppColors.whiteColor),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
+            ),
           ),
 
           Positioned(

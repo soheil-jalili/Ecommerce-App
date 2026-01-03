@@ -2,6 +2,7 @@ import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
 import 'package:ecommerce/screens/cart_screen.dart';
 import 'package:ecommerce/screens/home_screen.dart';
+import 'package:ecommerce/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
               children: [
                 HomeScreen(),
                 CartScreen(),
-                Center(child: Text('not')),
+                NotificationScreen(),
                 Center(child: Text('profile')),
               ],
             ),
@@ -210,7 +211,7 @@ class _MainScreenState extends State<MainScreen> {
                                     right: 12,
                                   ),
                                   child: Text(
-                                    'Notification',
+                                    'Notifi',
                                     style: TextStyle(
                                       color: AppColors.blackColor,
                                       fontSize: 11,

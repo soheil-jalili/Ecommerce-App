@@ -21,7 +21,9 @@ class TopAppBarCustom extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pop();
+              if (Navigator.of(context).canPop()) {
+                Navigator.of(context).pop();
+              }
             },
             child: Container(
               width: 40,
