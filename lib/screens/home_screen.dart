@@ -29,6 +29,7 @@ class HomeScreen extends StatelessWidget {
             ),
 
             _products(),
+            SliverPadding(padding: EdgeInsets.only(bottom: 25)),
           ],
         ),
       ),
