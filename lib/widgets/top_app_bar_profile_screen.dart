@@ -1,6 +1,5 @@
 import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
-import 'package:ecommerce/screens/notification_screen.dart';
 import 'package:flutter/material.dart';
 
 class TopAppBarProfile extends StatelessWidget {
@@ -30,12 +29,7 @@ class TopAppBarProfile extends StatelessWidget {
         Row(
           children: [
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationScreen()),
-                );
-              },
+              onTap: () {},
               child: Container(
                 width: 40,
                 height: 40,
