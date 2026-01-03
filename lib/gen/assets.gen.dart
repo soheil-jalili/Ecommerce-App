@@ -80,6 +80,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/top-bag.png
   AssetGenImage get topBag => const AssetGenImage('assets/images/top-bag.png');
 
+  /// File path: assets/images/user-profile.jpg
+  AssetGenImage get userProfile =>
+      const AssetGenImage('assets/images/user-profile.jpg');
+
   /// File path: assets/images/user.jpg
   AssetGenImage get user => const AssetGenImage('assets/images/user.jpg');
 
@@ -109,6 +113,7 @@ class $AssetsImagesGen {
     star,
     tick,
     topBag,
+    userProfile,
     user,
     watch,
   ];

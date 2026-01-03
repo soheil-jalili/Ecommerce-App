@@ -3,6 +3,7 @@ import 'package:ecommerce/gen/assets.gen.dart';
 import 'package:ecommerce/screens/cart_screen.dart';
 import 'package:ecommerce/screens/home_screen.dart';
 import 'package:ecommerce/screens/notification_screen.dart';
+import 'package:ecommerce/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -28,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
                 HomeScreen(),
                 CartScreen(),
                 NotificationScreen(),
-                Center(child: Text('profile')),
+                ProfileScreen()
               ],
             ),
 
