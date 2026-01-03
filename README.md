@@ -1,4 +1,4 @@
-# Ecommerce Mobile App - Community
+# Ecommerce Mobile App
 
 A clean and modern **Ecommerce Mobile App UI** built with **Flutter**, based on a Figma UI Kit for community interactions.
 
