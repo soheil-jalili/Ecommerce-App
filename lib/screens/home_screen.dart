@@ -57,71 +57,77 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => ProductDetailScreen()),
               );
             },
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Stack(
-                      children: [
-                        Image.asset(productImages[index]),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        productImages[index],
+                        fit: BoxFit.cover,
+                        width: MediaQuery.of(context).size.width,
+                      ),
 
-                        Positioned(
-                          right: 15,
-                          top: 15,
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              width: 30,
-                              height: 30,
-                              decoration: BoxDecoration(
-                                color: AppColors.blackColor,
-                                borderRadius: BorderRadius.circular(1000),
-                              ),
-                              child: Center(child: Assets.images.hart.image()),
+                      Positioned(
+                        right: 15,
+                        top: 15,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            width: 30,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: AppColors.blackColor,
+                              borderRadius: BorderRadius.circular(1000),
                             ),
+                            child: Center(child: Assets.images.hart.image()),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 11),
-                  Text(
-                    'The Marc Jacobs',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.blackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
+                ),
+                SizedBox(height: 11),
+                Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'The Marc Jacobs',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        'Traveler Tote',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: AppColors.subTextColor,
+                        ),
+                      ),
+                      SizedBox(height: 4),
+                      Text(
+                        '\$195.00',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: AppColors.blackColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(height: 4),
-                  Text(
-                    'Traveler Tote',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: AppColors.subTextColor,
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    '\$195.00',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: AppColors.blackColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
