@@ -2,6 +2,7 @@ import 'package:ecommerce/constants/app_colors.dart';
 import 'package:ecommerce/gen/assets.gen.dart';
 import 'package:ecommerce/widgets/top_app_bar_custom.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   const ProductDetailScreen({super.key});
@@ -12,6 +13,7 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   final sizes = ['S', 'M', 'L', 'XL', 'XXL'];
+  final PageController _controller = PageController();
 
   final colors = [
     AppColors.whiteColor,
@@ -22,6 +24,12 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   int selectedSize = 2;
   int selectedColor = 0;
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -418,7 +426,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
         SizedBox(
           width: double.infinity,
           height: 430,
-          child: Image.asset(Assets.images.detail.path, fit: BoxFit.cover),
+          child: PageView(
+            controller: _controller,
+            children: [
+              Image.asset(Assets.images.detail.path, fit: BoxFit.cover),
+              Image.asset(Assets.images.watch.path, fit: BoxFit.cover),
+            ],
+          ),
         ),
 
         TopAppBarCustom(length: 0, haveShadow: false),
@@ -436,6 +450,45 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 color: AppColors.whiteColor,
               ),
               child: Center(child: Image.asset(Assets.images.hartDetail.path)),
+            ),
+          ),
+        ),
+
+        Positioned(
+          bottom: 40,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: SmoothPageIndicator(
+              controller: _controller,
+              count: 2,
+              effect: CustomizableEffect(
+                activeDotDecoration: DotDecoration(
+                  width: 15,
+                  height: 15,
+                  color: Colors.white,
+                  dotBorder: DotBorder(
+                    color: AppColors.whiteColor,
+                    width: 1,
+                    padding: 4,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                dotDecoration: DotDecoration(
+                  width: 7,
+                  height: 7,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                spacing: 10,
+              ),
+              onDotClicked: (index) {
+                _controller.animateToPage(
+                  index,
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeInOut,
+                );
+              },
             ),
           ),
         ),
